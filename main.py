@@ -21,7 +21,9 @@ app.title('Yotube Video Downloader')
 
 ## Elements
 
-title = customtkinter.CTkLabel(app, text='Insert a YouTube URL :')
+text_var = tkinter.StringVar(value="Insert a YouTube URL :")
+
+title = customtkinter.CTkLabel(app, textvariable=text_var, font=('Roboto', 15), text_color='cyan')
 title.pack(padx=10, pady=10)
 
 # Run App
