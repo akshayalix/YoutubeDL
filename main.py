@@ -30,21 +30,27 @@ title.pack(padx=10, pady=10)"""
 
 # Frame
 
-menuframe = customtkinter.CTkFrame(master=app,
+menuframe = customtkinter.CTkFrame(app,
             width=720, height=20,
             corner_radius=1, fg_color='#4a4a4a'
             )
 menuframe.pack(expand=True , fill=tkinter.X, anchor='n')
 
-## File option menu
+## Menu Buttons
 
-filemenu = customtkinter.CTkOptionMenu(
-    menuframe, values=["Open Folder"], width=10, height=20,
-    dropdown_fg_color='#1f6aa5', dropdown_hover_color='#1f6aa5',
-    corner_radius=6
-    )
-filemenu.pack(anchor='w')
-filemenu.set("File")
+btnfolder = customtkinter.CTkButton(app,
+            width=40, height=20, border_width=0,
+            corner_radius=8, text="Open Folder"
+            )
+btnfolder.place(rely=0.5, anchor='nw')
+
+btnabout = customtkinter.CTkButton(app,
+            width=40, height=20, border_width=0,
+            corner_radius=8, text="About"
+            )
+btnabout.place(rely=0.5, anchor='e')
+
+
 
 
 
