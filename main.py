@@ -17,11 +17,12 @@ def startDownload():
         video = ytObject.streams.get_highest_resolution()
 
         title.configure(text=ytObject.title, text_color="white")
-
+        finishLabel.configure(text="")
         video.download()
+        finishLabel.configure(text="Download Completed")
     except:
         finishLabel.configure(text="Invalid Link", text_color="red")
-    finishLabel.configure(text="Download Completed")
+    
 
 ## System Settings
 
@@ -46,6 +47,14 @@ title.pack(padx=10, pady=10)
 url_var = tkinter.StringVar()
 link = customtkinter.CTkEntry(app, font=('Roboto', 15), width=350, height=40, textvariable=url_var)
 link.pack()
+
+## Progress Percentage
+pPercentage = customtkinter.CTkLabel(app, text="0%")
+pPercentage.pack()
+
+progressBar = customtkinter.CTkProgressBar(app, width=400)
+progressBar.set(0)
+progressBar.pack()
 
 ## Download Button
 
