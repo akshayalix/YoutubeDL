@@ -13,7 +13,7 @@ from pytube import YouTube
 def startDownload():
     try:
         ytLink = YouTube(link.get())
-        stream = ytLink.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+        stream = ytLink.streams.get_highest_resolution()
         stream.download()
     except:
         print("Youtube link is invalid")
@@ -46,9 +46,11 @@ link.pack()
 ## Download Button
 
 download = customtkinter.CTkButton(app, text='Download', command=startDownload)
-download.pack()
+download.pack(padx=10, pady=10)
 
-
+# Finished Downloading
+finishLabel = customtkinter.CTkLabel(app, text="")
+finishLabel.pack()
 
 
 
