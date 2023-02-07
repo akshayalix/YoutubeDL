@@ -12,12 +12,16 @@ from pytube import YouTube
 
 def startDownload():
     try:
-        ytLink = YouTube(link.get())
-        stream = ytLink.streams.get_highest_resolution()
-        stream.download()
+        ytLink = link.get()
+        ytObject = YouTube(ytLink)
+        video = ytObject.streams.get_highest_resolution()
+
+        title.configure(text=ytObject.title, text_color="white")
+
+        video.download()
     except:
-        print("Youtube link is invalid")
-    print("Download Completed")
+        finishLabel.configure(text="Invalid Link", text_color="red")
+    finishLabel.configure(text="Download Completed")
 
 ## System Settings
 
