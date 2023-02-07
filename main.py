@@ -28,7 +28,9 @@ title.pack(padx=10, pady=10)
 
 ## Link input
 
-link = customtkinter.CTkEntry(app, font=('Roboto', 15), width=350, height=40)
+url_var = tkinter.StringVar()
+link = customtkinter.CTkEntry(app, font=('Roboto', 15), width=350, height=40, textvariable=url_var)
+link.pack()
 
 
 
