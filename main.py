@@ -28,7 +28,12 @@ def on_progress(stream, chunk, bytes_remaining):
     total_size = stream.filesize
     bytes_downloaded = total_size - bytes_remaining
     percentage_of_completion = bytes_downloaded / total_size * 100
-    print(percentage_of_completion)
+    per = str(int(percentage_of_completion))
+    pPercentage.configure(text=per + "%")
+    pPercentage.update()
+
+    ### Update Progress Bar
+    progressBar.set(float(percentage_of_completion) / 100)
     
 
 ## System Settings
